@@ -1,42 +1,49 @@
-# Customer Segmentation & Marketing Analytics | dunnhumby
+# Análise de Marketing e Segmentação de Clientes | dunnhumby
 
-### RFM Analysis · K-Means Clustering · R Shiny Dashboard
+### Análise RFM · K-Means Clustering · Dashboard Interativo em R Shiny
 
-## Project Overview
+## 1. Sobre o Projeto
 
-This project explores customer purchasing behavior using the **dunnhumby retail dataset**, applying data analytics and unsupervised machine learning techniques to identify meaningful customer segments.
+Este projeto tem como objetivo analisar o comportamento de consumo de clientes a partir de dados transacionais de varejo disponibilizados pela **dunnhumby**, utilizando técnicas de análise exploratória de dados, segmentação RFM (*Recency, Frequency, Monetary*) e aprendizado de máquina não supervisionado.
 
-The objective is to transform transactional retail data into actionable marketing insights, supporting customer segmentation, purchasing behavior analysis, and data-driven marketing strategies.
+A proposta consiste em transformar dados de transações comerciais em informações relevantes para a compreensão dos hábitos de compra, identificação de perfis de consumidores e desenvolvimento de estratégias de marketing orientadas por dados.
 
-The project is developed primarily in **R**, following a structured analytical workflow from data preparation to interactive visualization.
+O projeto é desenvolvido em **R**, contemplando desde a preparação e exploração dos dados até a aplicação de técnicas de clustering e a construção de um dashboard interativo utilizando Shiny.
 
-**Project Status:** In Development 🚧
+## 2. Objetivos
 
-## Project Objectives
+**Objetivo geral**
 
-- Clean, validate, and explore retail transaction data.
-- Investigate customer purchasing patterns and spending behavior.
-- Perform **RFM (Recency, Frequency, Monetary) Analysis** to evaluate customer engagement and value.
-- Apply **K-Means Clustering** to identify customer segments based on behavioral characteristics.
-- Evaluate clustering results using appropriate statistical methods.
-- Develop the first version of an interactive **R Shiny Dashboard** to communicate analytical findings.
+Investigar padrões de comportamento de consumo e identificar segmentos de clientes por meio de técnicas estatísticas e de aprendizado de máquina, visando apoiar decisões estratégicas de marketing.
 
-## Technologies & Libraries
+**Objetivos específicos**
 
-| Category | Tools & Libraries |
+- Realizar a importação, limpeza e validação dos dados transacionais.
+- Explorar padrões de compra, frequência de transações e comportamento de gastos.
+- Aplicar a metodologia RFM para avaliar recência, frequência e valor monetário das compras.
+- Investigar características comportamentais relevantes para a segmentação dos consumidores.
+- Aplicar algoritmos de clustering para identificar grupos com características semelhantes.
+- Avaliar a qualidade e a consistência dos agrupamentos obtidos.
+- Desenvolver um dashboard interativo para apresentação dos indicadores e resultados analíticos.
+
+## 3. Tecnologias e Bibliotecas
+
+| Categoria | Tecnologias e Bibliotecas |
 |---|---|
-| Programming Language | R |
-| Development Environment | RStudio |
-| Data Manipulation | tidyverse, dplyr, janitor |
-| Exploratory Data Analysis | ggplot2, skimr |
-| RFM Analysis | dplyr, lubridate |
-| Clustering & Evaluation | stats, cluster, factoextra |
-| Dashboard Development | Shiny |
-| Version Control | Git & GitHub |
+| Linguagem de programação | R |
+| Ambiente de desenvolvimento | RStudio |
+| Manipulação e limpeza | tidyverse, dplyr, janitor |
+| Análise exploratória | ggplot2, skimr |
+| Análise RFM | dplyr, lubridate |
+| Clustering e avaliação | stats, cluster, factoextra |
+| Dashboard interativo | Shiny |
+| Versionamento | Git e GitHub |
 
-## Project Structure
+**Observação:** `dplyr`, `ggplot2` e `lubridate` integram o tidyverse. O pacote `stats` acompanha a instalação padrão do R.
 
-The project is organized into independent R scripts to improve code readability, maintainability, and reproducibility.
+## 4. Estrutura do Repositório
+
+O projeto está organizado em scripts independentes, separados de acordo com as etapas do processo analítico. Essa estrutura facilita a navegação, manutenção, depuração e reprodutibilidade do código.
 
 ```text
 dunnhumby-marketing-analysis/
@@ -59,82 +66,111 @@ dunnhumby-marketing-analysis/
 └── README.md
 ```
 
-*Note: This structure represents the planned project organization and may evolve during development.*
+### Organização dos diretórios
 
-## Analytical Workflow
+- **data/raw:** arquivos originais, preservados sem modificações.
+- **data/processed:** conjuntos de dados tratados e resultados intermediários necessários às etapas posteriores.
+- **R:** scripts responsáveis pela configuração do ambiente, preparação dos dados e análises.
+- **dashboard:** aplicação interativa desenvolvida em Shiny.
 
-### 01. Data Import & Cleaning
-Import CSV files, inspect dataset structures, handle missing values and duplicates, standardize variables, and prepare transactional data for analysis.
+A separação entre dados brutos e processados permite preservar a integridade das fontes originais e reutilizar resultados analíticos sem repetir operações desnecessárias.
 
-### 02. Exploratory Data Analysis (EDA)
-Explore purchasing patterns, transaction distributions, customer spending behavior, and relevant descriptive statistics through visualizations.
+## 5. Metodologia
 
-### 03. RFM Analysis
-Calculate customer-level metrics:
+### Etapa 1 — Importação e Limpeza dos Dados
 
-- **Recency:** Time elapsed since the customer's last purchase.
-- **Frequency:** Number of purchases within the observation period.
-- **Monetary:** Total monetary value of customer purchases.
+Importação dos arquivos CSV e investigação inicial da estrutura dos conjuntos de dados.
 
-Use these metrics to investigate customer engagement and purchasing behavior.
+As atividades incluem:
 
-### 04. Customer Clustering
-Apply K-Means Clustering to behavioral variables and investigate the resulting customer segments.
+- Identificação dos tipos de variáveis.
+- Verificação de valores ausentes e registros duplicados.
+- Padronização de nomes e formatos.
+- Análise de consistência entre tabelas.
+- Tratamento de inconsistências relevantes para as análises posteriores.
 
-Evaluate cluster configurations using methods such as the Elbow Method and Silhouette Analysis.
+### Etapa 2 — Análise Exploratória de Dados (EDA)
 
-### 05. Interactive Dashboard
-Develop the first version of an R Shiny application to present customer segmentation results, RFM metrics, and interactive data visualizations.
+Investigação estatística e visual dos dados para compreender suas características e identificar padrões de consumo.
 
-## Getting Started
+Entre os aspectos analisados estão a distribuição das transações, o comportamento de gastos, a frequência de compras e as relações entre variáveis relevantes.
 
-### Requirements
+As análises utilizam estatísticas descritivas e visualizações construídas principalmente com `ggplot2`.
+
+### Etapa 3 — Análise RFM
+
+Aplicação da metodologia RFM para avaliar o comportamento de compra dos consumidores a partir de três dimensões:
+
+- **Recency (Recência):** tempo decorrido desde a última compra do cliente.
+- **Frequency (Frequência):** quantidade de compras realizadas durante o período analisado.
+- **Monetary (Valor Monetário):** valor total gasto pelo cliente no período.
+
+Essas métricas permitem investigar diferentes níveis de atividade, relacionamento e valor dos consumidores.
+
+### Etapa 4 — Clustering e Segmentação de Clientes
+
+Aplicação de técnicas de aprendizado de máquina não supervisionado para identificar agrupamentos de clientes com características semelhantes.
+
+A análise contempla a utilização do algoritmo **K-Means**, a investigação de diferentes configurações de agrupamento e a avaliação dos resultados por meio de métodos como:
+
+- Método do Cotovelo (*Elbow Method*).
+- Coeficiente de Silhueta (*Silhouette Score*).
+- Análise das características e diferenças entre os clusters.
+
+Além das métricas RFM, outras variáveis comportamentais poderão ser consideradas conforme sua relevância estatística e analítica.
+
+### Etapa 5 — Desenvolvimento do Dashboard
+
+Construção de uma aplicação interativa utilizando **R Shiny**, com o objetivo de apresentar os resultados de maneira acessível e apoiar sua interpretação.
+
+O dashboard reúne indicadores de comportamento de consumo, métricas RFM, resultados da segmentação e visualizações interativas.
+
+## 6. Configuração do Ambiente
+
+### Requisitos
 
 - R
 - RStudio
-- Required R packages
+- Bibliotecas utilizadas nas etapas analíticas
 
-### Installation
+### Instalação
 
-Clone the repository and open the project in RStudio.
-
-Run the package setup script:
+Após clonar o repositório e abrir o projeto no RStudio, execute o script responsável pela configuração inicial:
 
 ```r
 source("R/00_setup.R")
 ```
 
-The setup script is intended to check and install the required packages.
+O script de configuração reúne os pacotes necessários e permite realizar sua instalação.
 
-The analytical scripts will be developed and executed according to the project's workflow.
+Os demais scripts estão organizados de acordo com a sequência metodológica apresentada neste documento.
 
-## Dataset
+## 7. Fonte dos Dados
 
-**Source:** dunnhumby — Retail Customer Transaction Data
+**Fonte:** dunnhumby — Dados transacionais de varejo.
 
-The project uses retail transaction data for educational purposes and portfolio development.
+Os dados são utilizados para fins de estudo, pesquisa aplicada e desenvolvimento de portfólio profissional.
 
-Dataset access instructions and any applicable licensing or redistribution conditions will be documented as the project progresses.
+A documentação da fonte, as características dos arquivos utilizados e eventuais condições de redistribuição devem ser observadas conforme o conjunto de dados selecionado.
 
-## Expected Deliverables
+## 8. Resultados e Aplicações
 
-- Cleaned and validated analytical datasets.
-- Exploratory analysis and supporting visualizations.
-- Customer-level RFM metrics.
-- Evaluated customer clustering results.
-- Interactive R Shiny Dashboard — Version 1.
-- Reproducible R scripts documenting the analytical workflow.
+A metodologia adotada permite investigar diferentes dimensões do comportamento de compra, combinando análises descritivas, métricas de relacionamento com clientes e técnicas de segmentação.
 
-## Future Development
+Entre as aplicações dos resultados estão:
 
-Potential extensions include additional behavioral segmentation variables, further clustering experiments, and expanded dashboard functionality.
+- Identificação de perfis de consumidores.
+- Análise de padrões de frequência e valor de compra.
+- Investigação de diferenças comportamentais entre segmentos.
+- Apoio ao planejamento de estratégias de retenção e relacionamento.
+- Desenvolvimento de visualizações para comunicação de informações estratégicas.
 
-These extensions will be evaluated after completion of the first version.
+Os resultados específicos e suas interpretações devem ser apresentados com base nas evidências obtidas durante a execução das análises.
 
-## Author
+## 9. Autoria
 
 **Carolina Muro Gomes**
 
-Data Analytics | Data Science Student
+Data Analytics | Estudante de Ciência de Dados
 
-*Developed as an independent marketing analytics and customer segmentation portfolio project.*
+Projeto independente de análise de dados aplicada ao marketing, comportamento do consumidor e segmentação de clientes.
