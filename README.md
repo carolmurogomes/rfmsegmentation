@@ -43,19 +43,19 @@ rfmsegmentation/
 │
 ├── data/
 │   ├── raw/
-│   └── processed/
-│
+│        ├── DATASET.md
+│        ├── METADATA.md
+|
 ├── R/
 │   ├── 00_setup.R
 │   ├── 01_import_cleaning.R
 │   ├── 02_eda.R
 │   ├── 03_rfm_analysis.R
 │   └── 04_clustering.R
-│
+|
 ├── dashboard/
 │   └── app.R
-│
-├── .gitignore
+|
 └── README.md
 ```
 
