@@ -22,5 +22,9 @@ C <- c("cluster","factoextra")
 D <- c("shiny")
 
 ###Then, let's install the vectors all together
-install.packages(c(A,B,C,D))
 
+#install.packages(c(A,B,C,D))
+
+## UNCOMMENT THE LINE INSTALL PACKAGES TO INSTALL FIRST TIME 
+## THEN, MAKE THE LINE A COMMENT AGAIN, BECAUSE I WILL USE SOURCE() TO REFER TO EACH VECTOR
+##IF YOU DONT MAKE IT A COMMENT, IT WILL INSTALL LIBRARYS EVERYTIME YOU CALL THE SET UP
