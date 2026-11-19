@@ -77,22 +77,8 @@ Esses relacionamentos permitem complementar as métricas transacionais com infor
 
 A cobertura e a consistência das relações serão verificadas durante a preparação dos dados.
 
-## 5. Organização dos Arquivos
 
-Após obter os dados, os três arquivos CSV devem ser colocados na seguinte estrutura local:
-
-```text
-data/
-├── DATASET.md
-└── raw/
-    ├── transaction_data.csv
-    ├── hh_demographic.csv
-    └── product.csv
-```
-
-Os arquivos originais devem ser preservados sem modificações. As operações de limpeza, transformação e análise são realizadas pelos scripts R do projeto.
-
-## 6. Escopo Analítico
+## 5. Escopo Analítico
 
 A análise principal consiste na aplicação da metodologia RFM e do algoritmo K-Means para segmentação comportamental dos domicílios.
 
